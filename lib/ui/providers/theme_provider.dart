@@ -19,26 +19,27 @@ class ThemeProvider extends ChangeNotifier {
   void loadThemePref() async {
     userPrefs = await SharedPreferences.getInstance();
     isDark = userPrefs.getBool("isDark") ?? false;
+    notifyListeners();
   }
 
   ThemeMode get themeMode => isDark ? ThemeMode.dark : ThemeMode.light;
 
   String get bgImgPath =>
-      !isDark ? AppAssets.defaultBg : AppAssets.defaultDarkBg;
+      isDark ? AppAssets.defaultDarkBg : AppAssets.defaultBg;
 
-  String get splashImgPath => !isDark ? AppAssets.splash : AppAssets.darkSplash;
+  String get splashImgPath => isDark ? AppAssets.darkSplash : AppAssets.splash;
 
   String get sebhaBody =>
-      !isDark ? AppAssets.sebhaBody : AppAssets.sebhaBodyDark;
+      isDark ? AppAssets.sebhaBodyDark : AppAssets.sebhaBody;
 
   String get sebhaHead =>
-      !isDark ? AppAssets.sebhaHead : AppAssets.sebhaHeadDark;
+      isDark ? AppAssets.sebhaHeadDark : AppAssets.sebhaHead;
 
   Color get bottomNavBarColor =>
-      !isDark ? AppColors.primary : AppColors.darkAccent;
+      isDark ? AppColors.darkAccent : AppColors.primary;
 
   Color get bottomNavBarSelectedColor =>
-      !isDark ? AppColors.black : AppColors.darkPrimary;
+      isDark ? AppColors.darkPrimary : AppColors.black;
 
   void toggleTheme() {
     if (isDark) {

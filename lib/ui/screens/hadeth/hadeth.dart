@@ -18,7 +18,9 @@ class _HadethState extends State<Hadeth> {
   @override
   Widget build(BuildContext context) {
     int hadethOrder = ModalRoute.of(context)!.settings.arguments as int;
-    readFileContent(hadethOrder);
+    if (hadethContent.isEmpty) {
+      readFileContent(hadethOrder);
+    }
     return MainContentPage(
         title: hadethTitle, addPlayIcon: false, content: hadethContent);
   }
@@ -30,7 +32,7 @@ class _HadethState extends State<Hadeth> {
     List<String> hadethLines = ahadeth[hadethOrder].split("\n");
     hadethTitle = hadethLines[0];
     hadethLines.removeAt(0);
-    hadethContent = hadethLines.join();
+    hadethContent = hadethLines.join().trim();
     setState(() {});
   }
 }

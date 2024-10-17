@@ -12,14 +12,18 @@ class QuranTab extends StatelessWidget {
   Widget build(BuildContext context) {
     theme = Theme.of(context);
     return Column(
-      children: [Image.asset(AppAssets.quranLogo), buildSurasList(context)],
+      children: [
+        Expanded(flex: 3, child: Image.asset(AppAssets.quranLogo)),
+        buildSurasList(context)
+      ],
     );
   }
 
   Widget buildSurasList(BuildContext context) {
     return Expanded(
+      flex: 7,
       child: Stack(
-        alignment: Alignment.center,
+        alignment: Alignment.topCenter,
         children: [
           Column(
             children: [
@@ -29,7 +33,7 @@ class QuranTab extends StatelessWidget {
               buildSurasScrollList(),
             ],
           ),
-          Container(width: 0.95, color: theme.primaryColor),
+          VerticalDivider(thickness: 1.5, color: theme.primaryColor),
         ],
       ),
     );

@@ -15,7 +15,6 @@ class Splash extends StatelessWidget {
       Navigator.pushReplacementNamed(context, Home.routeName);
     });
     return Scaffold(
-      extendBody: true,
       body: Image.asset(
         themeProvider.splashImgPath,
       ),

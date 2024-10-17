@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islami/ui/screens/hadeth/hadeth.dart';
 import 'package:islami/utils/app_assets.dart';
+import 'package:islami/utils/app_constants.dart';
 import 'package:islami/utils/extensions/extensions.dart';
 
 class HadethTab extends StatelessWidget {
@@ -29,6 +30,7 @@ class HadethTab extends StatelessWidget {
   Widget buildAhadethList() {
     return Expanded(
       child: ListView.builder(
+        itemCount: AppConstants.ahadeth.split("#").length - 1,
         itemBuilder: (context, index) => InkWell(
           onTap: () {
             Navigator.pushNamed(context, Hadeth.routeName, arguments: index);

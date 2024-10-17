@@ -1,14 +1,9 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:islami/ui/providers/theme_provider.dart';
 import 'package:islami/ui/widgets/main_app_bar.dart';
-import 'package:islami/utils/app_styles.dart';
 import 'package:provider/provider.dart';
-import '../../../utils/app_assets.dart';
+
 import '../../../utils/app_colors.dart';
-import '../../models/sura/sura_details_args.dart';
 
 class MainContentPage extends StatefulWidget {
   static String routeName = "MainContentPage";
@@ -81,7 +76,9 @@ class _MainContentPageState extends State<MainContentPage> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Icon(Icons.play_circle),
+          widget.addPlayIcon
+              ? const Icon(Icons.play_circle)
+              : const SizedBox.shrink(),
           const SizedBox(
             width: 20,
           ),

@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami/models/sura/sura_details_args.dart';
-import 'package:islami/ui/widgets/main_app_bar.dart';
 import 'package:islami/ui/widgets/main_content_page.dart';
-import 'package:islami/utils/app_styles.dart';
-
-import '../../../utils/app_assets.dart';
-import '../../../utils/app_colors.dart';
 
 class Quran extends StatefulWidget {
   static String routeName = "Quran";
@@ -38,8 +33,6 @@ class _QuranState extends State<Quran> {
 
     for (int i = 0; i < verses.length; i++) {
       verses[i] += "(${i + 1})";
-
-      print(i);
     }
     suraContent = verses.join();
     setState(() {});
